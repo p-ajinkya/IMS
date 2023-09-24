@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './Dashboard1Styles.css'
-import { useState } from 'react'
 import { Link } from "react-router-dom"
 import {FaBars, FaTimes,} from "react-icons/fa"
 import {BiHome} from "react-icons/bi"
@@ -16,6 +16,25 @@ import Tabledata from '../pages/Tabledata'
 const Dashboard1 = () => {
     const[click,setClick] = useState(false);
     const handleClick = () => setClick(!click);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const loginData = JSON.parse(sessionStorage.getItem('loginData'));
+        const token = sessionStorage.getItem('token');
+        console.log("loginData@@@@@00", loginData);
+        if (!loginData && token == null) {
+          // localStorage.setItem("token", loginData?.data?.token);
+          // const jsonString = JSON.stringify(loginData?.data?.userDetails);
+          // localStorage.setItem("userDetails", jsonString);
+          // localStorage.setItem("userRole", loginData?.data?.userDetails?.role);
+          // if (loginData?.data?.userDetails?.role == "SuperAdmin") {
+          //   navigate("/superadmin");
+          // } else {
+          //   navigate("/budget-summary");
+          // }
+          navigate("/Login")
+        }
+      }, []);
 
   return (
     <div className='dcontainer'>
