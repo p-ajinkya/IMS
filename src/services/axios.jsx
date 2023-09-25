@@ -6,7 +6,7 @@ const accessToken = JSON.parse(sessionStorage.getItem("token"));
 console.log("accessToken", accessToken);
 
 const axiosInstance = axios.create({
-  baseURL: " https://e066-223-190-87-209.ngrok-free.app", // Replace with your API base URL
+  baseURL: "https://d6d0-223-190-87-209.ngrok-free.app/api/v1", // Replace with your API base URL
   headers: {
     Authorization: `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
     "Content-Type": "application/json", // Adjust the content type as needed

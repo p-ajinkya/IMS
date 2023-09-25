@@ -28,7 +28,7 @@ const Login = ({ res }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axiosInstance.post("/api/v1/users/login", data);
+      const response = await axiosInstance.post("/users/login", data);
       if(response.data['success'] == true){
         setToken(response.data.data)
       }
